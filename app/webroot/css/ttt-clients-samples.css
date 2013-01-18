@@ -1,0 +1,376 @@
+body#backend{
+	padding-top: 20px;
+	margin: auto;
+	font-family: 'Droid Sans', sans-serif;
+	width: 960px;
+	background-color: #efefef;
+}
+
+div#tool1 header{
+	font-family: 'Open Sans', sans-serif;
+	font-size:25px;
+	font-weight: 300;
+	padding:15px;
+	color:#666;
+	text-align: center;
+}
+div#tool1 header span{
+	display:inline;
+}
+
+div#tool1 section{
+	color:#ccc;
+	font-size: 13px;
+	padding: 10px;
+}
+div#tool1 div{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
+div#tool1 button,div#tool1  input{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+div#tool1 button{ 
+	cursor:pointer;
+	border: 1px solid #fff;
+	background: #eee;
+}
+div#tool1 p{
+	float: left;
+}
+
+div#tool1 h1{
+	color: #242424;
+	font-size: 70px;
+	text-align: center;
+	text-transform: lowercase;
+}
+div#tool1 article{
+	margin:20px auto;
+	text-align: center;
+}
+div#tool1 a:link,div#tool1  a:visited{
+	color:white;
+}
+div#tool1 a:hover{
+	color:#ddd;
+}
+div#tool1 #container{ margin-bottom:250px; }
+.clear{
+	clear:both;
+}
+.bold{
+	font-weight: bold;
+}
+.no-margin{
+	margin:0px;
+	padding:0px;
+}
+.positive{
+	color:green;
+	padding-left: 20px;
+	background: url(../img/icons/arrowPos.gif) no-repeat 0px;
+}
+.negative{
+	color:red;
+	padding-left: 20px;
+	background: url(../img/icons/arrowNeg.gif) no-repeat 0px;
+}
+.neutral{
+	color:#7AA9CB;
+}
+
+#login{
+	margin: 30px auto;
+}
+
+#userchart{
+	margin: 50px auto;
+}
+
+#cotizacionBox2{
+	width:960px;
+	height: 35px;
+	background-color: #383838;
+	color: white;
+	border: 1px solid #363636;
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	position:fixed;
+	bottom: 0px;
+	box-shadow: 0px 0px 7px #666;
+}
+#drawToolBoxButton{ float:left; }
+#drawToolsBox{
+	background-color: #D4D4D4;
+	color: #383838;
+	border: 1px solid #d1d1d1;
+	width: 600px;
+	float: right;
+	height: 42px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	text-align: center;
+	display: none;
+}
+canvas#imageView, canvas#imageTemp{ display: none; }
+#datosLive div{
+	font-family: arial,helvetica,sans;
+	padding:10px;
+	float:left;
+	border-right: 1px solid #303030;
+}
+#datosLive span{
+	margin-left:5px;
+	margin-right:5px;
+	font-size: 13px;
+}
+
+.labelsCotizacion{
+	position: absolute;
+	margin-top:-22px;
+	display: none;
+}
+.miniBtn{
+	float:left;
+	border:1px solid #646764;
+	background-color: #403F3F;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	margin: 1px;
+}
+.button-circle-color{
+	border-radius: 10px;
+	background-color: white;
+	width: 13px;
+	height: 13px;
+	float:left;
+	display: inline-block;
+	border: 1px solid #ddd;
+	box-shadow: 1px 1px 1px #ccc;
+}
+.label{
+	float:left;
+	display: inline-block;
+	color: #383838;
+}
+
+.horizontalLine{
+	height: 1px;
+	background-color: black;
+	width: 100%;
+}
+
+/*USO DE GLYPH*/
+.selectBtn{
+	background: url(../img/icons/glyphicons-halflings.png) 14px 111px;
+	width:15px;
+	height:15px;
+	margin-left: -45px;
+	margin-top: 96px;
+	position: absolute;
+}
+.expandBtn{
+	background: url(../img/icons/glyphicons-halflings.png) 110px 65px;
+	width:15px;
+	height:15px;
+	margin-left: -25px;
+	margin-top: 95px;
+	position: absolute;
+}
+#showLoabels{
+	background: url(../img/icons/glyphicons-halflings.png) -24px 111px;
+	width: 18px;
+	height: 17px;
+	float: right;
+	border: none;
+}
+
+
+/*FORM DESIGN*/
+.graphicFalseBox{
+	border: 1px solid #40B7D9;
+	width: 100%;
+	height: 27px;
+	background: #333;
+	font-weight: 500;
+	font-size: 17px;
+	border-radius: 50px;
+	color: #509073;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+.graphicFalseBox span{ padding-top: 1px; padding-left:10px; float: left; }
+.graphicFalseBox .iconExpanded{ 
+	background: url(../img/icons/glyphicons-halflings-white.png) 161px 42px;
+	width: 18px;
+	height: 17px;
+	float: right;
+	border: none;
+	margin-right: 10px;
+	margin-top: 4px;
+}
+.graphicFalseBox .iconCollapsed{ 
+	background: url(../img/icons/glyphicons-halflings-white.png) 181px 42px;
+	margin-right: 5px;
+}
+/*FORM DESIGN*/
+.formLabel{
+	color:#303030;
+	font-weight: 300px;
+	float:left;
+	margin-top: 20px;
+}
+.formOptions{
+	float:right;
+	margin-top:20px;
+	margin-left:10px;
+}
+.formOptions span{
+	width:15px;
+	height:15px;
+	float:left;
+}
+.formOptions .style1{ background: url(../img/icons/glyphicons-halflings.png) -24px 87px;  }
+.formOptions .style2{ background: url(../img/icons/glyphicons-halflings.png) -24px 87px;  }
+.formOptions .style3{ background: url(../img/icons/glyphicons-halflings.png) -24px 87px;  }
+.formOptions .style1:hover{ background: url(../img/icons/glyphicons-halflings-white.png) -24px 87px;  }
+.formOptions .style2:hover{ background: url(../img/icons/glyphicons-halflings-white.png) -24px 87px;  }
+.formOptions .style3:hover{ background: url(../img/icons/glyphicons-halflings-white.png) -24px 87px;  }
+.formOptions .style1 span{}
+.formOptions .style2 span{ font-weight: 300;}
+.formOptions .style3 span{ font-weight: 300; text-transform: uppercase; }
+#formTitulo{ 
+	width:935px;
+	height:40px;
+	font-size: 18px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:1px solid #CCC;
+	color: #383838;
+	background-color: #DDD;
+	padding:10px;
+}
+#formCuerpo{
+	width:935px;
+	height:340px;
+	font-size: 18px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:1px solid #CCC;
+	color: #383838;
+	background-color: #DDD;
+	margin-bottom: 20px;
+	padding:10px;
+}
+#uploadPhotoBox{
+	margin-top: 10px;
+	display: none;
+}
+/*FORM DESIGN*/
+.buttonsBox{
+	margin-top:20px;
+}
+/*FORM DESIGN*/
+
+
+/*????????????*/
+/*EXTRA*/
+.Ntooltip {
+	position: relative; /* es la posición normal */
+	text-decoration: none !important; /* forzar sin subrayado */
+	color:#0080C0 !important; /* forzar color del texto */
+	font-weight:bold !important; /* forzar negritas */
+}
+
+.Ntooltip:hover {
+	z-index:999; /* va a estar por encima de todo */
+}
+
+.Ntooltip span {
+	display: none; /* el elemento va a estar oculto */
+}
+
+.Ntooltip:hover span {
+	display: block; /* se fuerza a mostrar el bloque */
+	position: absolute; /* se fuerza a que se ubique en un lugar de la pantalla */
+	top:2em; right:2em; /* donde va a estar */
+	width:55px; /* el ancho por defecto que va a tener */
+	padding:5px; /* la separación entre el contenido y los bordes */
+	background-color: #363636; /* el color de fondo por defecto */
+	color: #509073; /* el color de los textos por defecto */
+	border-radius: 2px;
+	text-align: center;
+}
+/*????????????*/
+/*EXTRA*/
+
+
+/*COLOR 4 ELEMENTS*/
+.lightGrey{ background-color: #dddddd; }
+.darkGrey{ background-color: #383838; }
+
+/*COLORS 4 BUTTONS*/
+.blue{
+	background-color: #1C4B8F;
+	background: -moz-linear-gradient(
+		top,
+		#fff3db 0%,
+		#1C4B8F 25%,
+		#399DEF );
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fff3db),
+		color-stop(0.25, #1C4B8F),
+		to(#399DEF));
+}
+.lightBlue{
+	background-color: #40B7D9;
+	background: -moz-linear-gradient(
+		top,
+		#fff3db 0%,
+		#399DEF 25%,
+		#40B7D9 );
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fff3db),
+		color-stop(0.25, #399DEF),
+		to(#40B7D9));
+}
+.orange{
+	background-color: #FC990C;
+	background: -moz-linear-gradient(
+		top,
+		#fff3db 0%,
+		#ff3c00 25%,
+		#ffc821 );
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fff3db),
+		color-stop(0.25, #ff3c00),
+		to(#ffc821));
+}
+.green{
+	background-color: #8A9B0F;
+	background: -moz-linear-gradient(
+		top,
+		#fff3db 0%,
+		#8A9B0F 25%,
+		#C7F464 );
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fff3db),
+		color-stop(0.25, #8A9B0F),
+		to(#C7F464));
+}
