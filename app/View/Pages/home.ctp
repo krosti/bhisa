@@ -1,154 +1,70 @@
-<?php echo $this->element('indices_box'); ?>
 
-<div class="column" id="col_izquierda">
-	<div id="slider_ads">
+<div class="row-fluid marketing">
+	<div class="span4 boxcustom">
+	  <div class="flechita"><?php echo $this->Html->image('flechita.png'); ?></div>
+	  <h4><?php echo $this->Html->image('experiencia.png'); ?></h4>
+	  <p>EQUIPO ALTAMENTE ESPECIALIZADO</p>
+	  <p>
+	  	Nuestro grupo de profesionales y técnicos posee una amplia experiencia en el desarrollo de Ingeniería de proyectos, lo que garantiza una ejecución competitiva y adecuada siempre a las necesidades específicas de cada cliente.
+	  </p>
+	  <div class="footercustombox"><?php echo $this->Html->image('footercustombox.png'); ?></div>
 	</div>
-	<div class="seccion" id="analisis">
-		<div class="header_seccion">
-			An&aacute;lisis TTT
-		</div>
-		<div class="cuerpo_seccion">
-			<div id="slideshow">
-				<div id="slidesContainer">
 
-						<?php $i = 0; ?>
-						<?php foreach ($analisisttt as $analisis) {?>
-							<?php if ($i % 2 == 0) :?>
-								<div class="slide">
-							<?php endif; ?>
-								<div class="caja_slide">
-									<div class="izq_slide">
-										<img src="<?php echo $analisis['Post']['serie_datos']; ?>" class="img_ppal_slide" width="200" onError="error_handler.imageError(this)"/>
-										<div class="thumb_slide">
-											<!--img src="img/warning.png" /
-													tag here
-											-->
-											<span><?php echo 'Lorem ipsum ..' ?></span>
-										</div>
-									</div>
-									<div class="der_slide">
-										<span class="tit_slide">
-											<?php echo $analisis['Post']['titulo']; ?>
-										</span>
-										<span class="cuerpo_slide">
-											<?php echo $this->Text->truncate($analisis['Post']['descripcion'], 272, array('ending' => '...','exact' => false) ); ?>
-										</span>
-									</div>
-									<div class="separacion_slide">
-									</div>
-									<div class="compartir_slide">
-										<!--img src="img/compartir_slide.png" /-->
-										<a href="http://www.facebook.com/dialog/feed?
-										  app_id=497402490288775&
-										  link=http://developers.facebook.com/docs/reference/dialogs/&
-										  picture=http://ttt.borealdev.com.ar/img/logo.png&
-										  name=TriTangoTraders%20AnalisisTTT%20-%20<?php echo $analisis['Post']['titulo'] ?>&
-										  caption=Reference%20Documentation&
-										  description=Using%20Dialogs%20to%20interact%20with%20users.&
-										  redirect_uri=http://www.example.com/response"
-										  target="_BLANK">
-										  <?php echo $this->Html->image('fb-share.jpeg'); ?>
-										</a>
-										//
-										<span>
-											<?php echo $this->Html->link('Agregar un Comentario','#idnro',array('class'=>'agregarComment') ); ?>
-										</span>
-									</div>
-									<div class="separacion_slide separacion_inferior"></div>
-								</div>
-							<?php #$i++; ?>
-							<?php if ( ($i % 2 == 0) ) :?>
-								</div>
-							<?php endif; ?>
-							
-						<?php } ?>
-
-				</div>
-			</div>
-		</div>
+	<div class="span4 boxcustom">
+	  <div class="flechita"><?php echo $this->Html->image('flechita.png'); ?></div>
+	  <h4><?php echo $this->Html->image('servicios.png'); ?></h4>
+	  <div class="points"></div>
+	  <p>Nuestro Departamento de Ingeniería está conformado por un grupo de profesionales y técnicos de amplia experiencia, lo que nos permite ofrecer un calificado servicio en el estudio personalizado de cada proyecto, pudiendo además prestar asesoramiento en la búsqueda de la mejor solución técnico-constructiva acorde a la necesidad de cada proyecto.</p>
+	  <div class="footercustombox"><?php echo $this->Html->image('footercustombox.png'); ?></div>
 	</div>
-	<div class="seccion" id="noticias">
-		<div class="header_seccion">
-			Noticias
-		</div>
-		<div class="cuerpo_seccion">
-
-		</div>
+	<div class="span4 ultimosproyectos">
+		<h4><?php echo $this->Html->image('ultimosproyectos.png'); ?></h4>
+		<?php foreach ($proyectos as $proyecto): ?>
+			<div class="media proyecto">
+        <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
+      <div class="blueLine"></div>
+		<?php endforeach ?>
+    <p><?php echo $this->Html->image('ultimosproyectos-flechita.png'); ?></p>
+    <p><?php echo $this->Html->link('VER M&Aacute;S PROYECTOS','#',array('escape'=>false)); ?></p>
 	</div>
 </div>
-<div class="column" id="col_derecha">
-	<div class="seccion" id="sit_actual">
-		<div class="header_seccion">
-			Situaci&oacute;n Actual
-		</div>
-		<div class="cuerpo_seccion">
-			<div id="slideshow2">
-				<div id="slidesContainer2">
+<div class="container-fluid nuestrosclientes-home">
 
-					<?php $i = 0; ?>
-					<?php foreach ($situacionesactuales as $situacion) {?>
-							<?php if ($i % 2 == 0) :?>
-							<div class="slide2">
-							<?php endif; ?>
-								<div class="caja_slide">
-									<span class="hora_slide">
-										<?php echo date("d-m-Y (H:i A)", strtotime($situacion['Post']['created'])); ?>
-									</span>
-									<div class="izq_slide">
-										<img src="<?php echo $situacion['Post']['serie_datos']; ?>" class="img_ppal_slide" width="200"/>
-									</div>
-									<div class="der_slide">
-										<span class="tit_slide">
-											<?php echo $situacion['Post']['titulo']; ?>
-										</span>
-										<span class="cuerpo_slide">
-											<?php echo $this->Text->truncate($situacion['Post']['descripcion'], 222, array('ending' => '...','exact' => false) ); ?>
-										</span>
-									</div>
-									<div class="separacion_slide">
-									</div>
-									<div class="compartir_slide">
-										//
-										<span>
-											<?php echo $this->Html->link('Agregar un Comentario','#idnro',array('class'=>'agregarComment') ); ?>
-										</span>
-									</div>
-									<div class="separacion_slide separacion_inferior">
-									</div>
-								</div>
-							<?php $i++; ?>
-							<?php if ($i % 2 == 0) : ?>
-							</div>
-							<?php endif; ?>
-						<?php } ?>
-					
+    <div class="row-fluid">
+      <h4><?php echo $this->Html->image('nuestrosclientes.png'); ?></h4>
+    </div>
+		<div class="row-fluid container">
+			<div id="clientesCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="http://placekitten.com/885/250" alt="">
+              <div class="carousel-caption">
+                <h4>First Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              </div>
+            </div>
+            <div class="item">
+              <img src="http://placekitten.com/885/250" alt="">
+              <div class="carousel-caption">
+                <h4>Second Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              </div>
+            </div>
+            <div class="item">
+              <img src="http://placekitten.com/885/250" alt="">
+              <div class="carousel-caption">
+                <h4>Third Thumbnail label</h4>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#clientesCarousel" data-slide="prev">‹</a>
+          <a class="right carousel-control" href="#clientesCarousel" data-slide="next">›</a>
+        </div>
+		</div>
 
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="seccion" id="opiniones">
-		<div class="header_seccion">
-			Consulta / Opini&oacute;n
-		</div>
-		<div class="cuerpo_seccion">
-			<!--div class="opinion">
-				<div class="borde_opinion">
-					<span class="titulo_opinion">Re: Consultas o comentarios sobre el Foro</span>
-					<span class="cuerpo_opinion">
-						<u>Notapor JIR el Mar Abr 19, 2011 3:16 pm</u>
-						<br />
-						El intercambio de mails es para situaciones particulares, excepcionales, no para pedir u ofrecer masivamente. Saludos.
-					</span>
-					<div class="compartir_slide">
-						<img src="img/compartir_slide.png" />
-						<span>
-							<?php echo $this->Html->link('Agregar un Comentario','#idnro',array('class'=>'agregarComment') ); ?>
-						</span>
-					</div>
-				</div>
-			</div-->
-			<?php echo $this->Facebook->livestream(); ?>
-		</div>
-	</div>
 </div>

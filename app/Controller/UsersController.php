@@ -7,8 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 	var $name = 'Users';
-	var $helpers = array('Html', 'Form','Session','Facebook.Facebook');
-	var $uses = array('User');
+	var $helpers = array('Html','Form','Session');
+	#var $uses = array('User');
 	var $components = array('Email');
 	
 	public function a987156428774($id){
@@ -93,7 +93,7 @@ class UsersController extends AppController {
 						"email" => $Info['User']['email'],
 					);
 					$this->Email->to = $Info['User']['email'];//ACA LE MANDAMOS EL MAIL CON EL LINK DE CONFIRMACION
-					$this->Email->subject = 'Aviso desde el Sitio Web | TTT.';
+					$this->Email->subject = 'Aviso desde el Sitio Web | ttt.';
 					$this->Email->from = "contacto@ttt.com.ar";					
 					$this->Email->template = 'aviso';				
 					$this->Email->sendAs = 'html';

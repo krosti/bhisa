@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $helpers = array('Html','Session','Form','Facebook.Facebook');
+	public $helpers = array('Html','Session','Form');
 	public $uses = array('User');
 	#public $components = array('Facebook.Connect');
 	/*public $components = array('Session',
@@ -45,18 +45,8 @@ class AppController extends Controller {
             'Facebook.Connect'
         );*/
 	//Example AppController.php components settup with FacebookConnect
-	public $components = array('Session',
-        'Auth' => array(
-            'authenticate' => array(
-                'Form' => array(
-                    'fields' => array('username' => 'email')
-                )
-            ),
-            'authorize' => 'Controller'
-        ),
-        'Facebook.Connect' => array('model' => 'User'),
-        'DebugKit.Toolbar'
-    );
+	#public $components = array();
+    
 
 
 	public function beforeFilter() {
@@ -97,17 +87,7 @@ class AppController extends Controller {
 		}*/
 		
 		#$this->set('test',$this->Auth->user());
-		$this->set('facebook_user', $this->Connect->user() );
+		#$this->set('facebook_user', $this->Connect->user() );
 		
-	}
-
-	public function isAuthorized(){
-		return ($this->Auth->user('id'));
-	}
-
-	//Add an email field to be saved along with creation.
-	function beforeFacebookSave(){
-	    $this->Connect->authUser['User']['email'] = $this->Connect->user('email');
-	    return true; //Must return true or will not save.
 	}
 }
