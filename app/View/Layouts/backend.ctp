@@ -16,7 +16,7 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array(/*'resources/css/ext-all',*/'ttt-clients-samples','lightbox','stockTicker','backend'));
+		echo $this->Html->css(array(/*'resources/css/ext-all',*/'ttt-clients-samples','lightbox','stockTicker','backend','/assets/css/bootstrap','/assets/css/bootstrap-responsive',));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -35,7 +35,7 @@
 				<?php echo $this->Html->image('ttt.png'); ?>
 			</span>
 			<section>
-				<span>please log-in with your account:</span>
+				<span>you're logged in:</span>
 			</section>
 		</header>
 		

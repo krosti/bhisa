@@ -54,7 +54,7 @@ class AdministratorController extends AppController {
 		
 	}
 
-	public function posts() {
+	public function index() {
 
 	}
 

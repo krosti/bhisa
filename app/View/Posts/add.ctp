@@ -11,6 +11,7 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
+<?php echo $this->element('uploadById',array('id'=>'PostImage')); ?>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>

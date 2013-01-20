@@ -105,4 +105,26 @@ class PostsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+	public function isUploadedFile() {
+		$this->autoRender = false;
+        $this->autoLayout = false; 
+        $this->viewPath = 'Elements';
+        
+	    $val = $this->request->params;
+	    #debug($val);
+	    if ((isset($val['form']['images']['error']) && $val['form']['images']['error'] == 0) ||
+	        (!empty( $val['form']['images']['tmp_name']) && $val['form']['images']['tmp_name'] != 'none')
+	    ) {
+	        if (move_uploaded_file(
+	        	strval(
+	        		$val['form']['images']['tmp_name'][0]),
+	        		ROOT.DS.APP_DIR.'/webroot/files/'.strval(date('dmY-hms').'_'.$val['form']['images']['name'][0])
+	        		)
+	        ){
+	        	return strval(date('dmY-hms').'_'.$val['form']['images']['name'][0]);
+	        }
+	    }
+	    return false;
+	}
+
 }
