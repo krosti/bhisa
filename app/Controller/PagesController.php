@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Project');
+	public $uses = array('Project','Client');
 
 
 /**
@@ -55,6 +55,7 @@ class PagesController extends AppController {
 	public function display() {
 		
 		$this->set('proyectos', $this->Project->find('all') );
+		$this->set('clientes', $this->Client->find('all') );
 		
 		$path = func_get_args();
 

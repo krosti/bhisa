@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Project $Project
  */
 class ProjectsController extends AppController {
-
+	public $uses = array('Project','Client');
 /**
  * index method
  *
@@ -15,6 +15,12 @@ class ProjectsController extends AppController {
 	public function index() {
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
+	}
+
+	public function proyectos() {
+		$this->Project->recursive = 0;
+		$this->set('proyectos', $this->Project->find('all',array('order'=>'Project.created DESC') ));
+		$this->set('clientes', $this->Client->find('all'));
 	}
 
 /**
@@ -30,6 +36,15 @@ class ProjectsController extends AppController {
 			throw new NotFoundException(__('Invalid project'));
 		}
 		$this->set('project', $this->Project->read(null, $id));
+	}
+	public function cliente($id = null) {
+		$this->Client->id = $id;
+		if (!$this->Client->exists()) {
+			throw new NotFoundException(__('No se encontraron proyectos para este cliente.'));
+		}
+		$this->set('proyectos', $this->Project->find('all', array('conditions'=>array('Project.client_id ='.$id),'order'=>'Project.created DESC' ) ));
+		$this->set('clientes', $this->Client->find('all'));
+		$this->set('currentClient', $this->Client->findById($id) );
 	}
 
 /**

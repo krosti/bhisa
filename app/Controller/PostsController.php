@@ -118,13 +118,13 @@ class PostsController extends AppController {
 	        if (move_uploaded_file(
 	        	strval(
 	        		$val['form']['images']['tmp_name'][0]),
-	        		ROOT.DS.APP_DIR.'/webroot/files/'.strval(date('dmY-hms').'_'.$val['form']['images']['name'][0])
+	        		ROOT.DS.APP_DIR.'/webroot/images-uploaded/'.strval(date('dmY-hms').'_'.$val['form']['images']['name'][0])
 	        		)
 	        ){
 	        	return strval(date('dmY-hms').'_'.$val['form']['images']['name'][0]);
 	        }
 	    }
 	    return false;
-	}
+	}	
 
 }

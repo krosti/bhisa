@@ -1,8 +1,11 @@
 <?php
+
+App::uses('AppModel', 'Model');
+
 class User extends AppModel {
-	var $name = 'User';
-	var $displayField = 'name';	
-	var $validate = array(
+	public $name = 'User';
+	public $displayField = 'name';	
+	public $validate = array(
 		'username'=>array(
 			'usernameRule-1' => array(
 				'rule' => 'notEmpty',
@@ -24,7 +27,11 @@ class User extends AppModel {
 			'rule'=>array('minLength', 3), 
 			'message'=>'Se requiere un nombre de minimo 3 letras'
 		),
-		'lastname' => array(
+		'first_name' => array(
+			'rule'=>array('minLength', 3), 
+			'message'=>'Se requiere un nombre de minimo 3 letras'
+		),
+		'last_name' => array(
 			'rule'=>array('minLength', 3), 
 			'message'=>'Se requiere un apellido de minimo 3 letras'
 		),
@@ -45,7 +52,12 @@ class User extends AppModel {
 			'email3' => array(			
 				'rule' => array('email', true),
 				'message' => 'Por favor indique una direccion de correo electronico valida.'
-			), 	
+			),
+			'check_email_exists'=>array(
+				'rule'=>'check_email_exists',
+				'message'=>'Direccion de correo existente.',
+				'on'=>'create'
+			)
 		),
 		'emailrep' => array(
 			'emailrep2' => array(		
@@ -63,6 +75,7 @@ class User extends AppModel {
 			),
 		)
 	);
+
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	/**
@@ -102,6 +115,7 @@ class User extends AppModel {
 	 */
 	function check_username_exists($check) {
 		// get User by username
+		//print_r($check);
 		if(!empty($check)) {
 			$user = $this->find('first',array('conditions'=>array('User.username'=>$check)));
 			// invalid User
@@ -109,6 +123,23 @@ class User extends AppModel {
 		}		
 	return TRUE;
 	}	
+
+	/**
+	 * Check a email exists in the database
+	 * @param array $check
+	 * @return bool
+	 */
+	function check_email_exists($check) {
+		// get User by username
+		if(!empty($check)) {
+			$email = $this->find('first',array('conditions'=>array('User.email'=>$check)));
+			// invalid User
+			if(!empty($email)) { return FALSE; }
+		}		
+	return TRUE;
+	}
+
+
 	/**
 	 * BeforeSave Callback
 	 */

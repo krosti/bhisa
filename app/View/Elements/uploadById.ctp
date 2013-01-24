@@ -8,48 +8,48 @@
 		border: 1px solid #ccc;
 	}
 
-	#image-list {
+	.image-list {
 		list-style:none;
 		margin:0;
 		padding:0;
 	}
-	#image-list li {
+	.image-list li {
 		background: #fff;
 		border: 1px solid #ccc;
 		text-align:center;
 		padding:20px;
 		margin-bottom:19px;
 	}
-	#image-list li img {
+	.image-list li img {
 		width: 258px;
 		vertical-align: middle;
 		border:1px solid #474747;
 	}
 
 </style>
-<div id="main">
-	<form method="post" enctype="multipart/form-data"  action="upload.php">
-		<input type="file" name="file" id="images" multiple />
-		<button type="submit" id="btn">Upload Files!</button>
+<div id="<?php echo 'main'.$id; ?>">
+	<form method="post" enctype="multipart/form-data">
+		<input type="file" name="file" id="<?php echo 'images'.$id; ?>" multiple />
+		<button type="submit" id="<?php echo 'btn'.$id; ?>" type="hidden">Upload Files!</button>
 		<?php 
 			echo $this->Html->link('url',
-					    			array('controller'=>'posts','action'=>'isUploadedFile'), 
-					    			array('style'=>'display:none;','id'=>'URLSITE') 
+    			array('controller'=>'posts','action'=>'isUploadedFile'), 
+    			array('style'=>'display:none;','id'=>'URLSITE') 
     		); 
 		?>
 	</form>
 
-	<div id="response"></div>
-	<ul id="image-list"></ul>
-	<?php echo $this->Html->image('/icons/loading.gif', array('id'=>'uploading_gif','style'=>'display:none;') ); ?>
+	<div id="<?php echo 'response'.$id; ?>"></div>
+	<ul id="<?php echo 'image-list'.$id; ?>" class="image-list"></ul>
+	<?php #echo $this->Html->image('/icons/loading.gif', array('id'=>'uploading_gif','style'=>'display:none;') ); ?>
 </div>
 <script type="text/javascript">
 	(function () {
-		var input = document.getElementById("images"), 
+		var input = document.getElementById("<?php echo 'images'.$id; ?>"), 
 			formdata = false;
 
 		function showUploadedItem (source) {
-	  		var list = document.getElementById("image-list"),
+	  		var list = document.getElementById("<?php echo 'image-list'.$id; ?>"),
 		  		li   = document.createElement("li"),
 		  		img  = document.createElement("img");
 	  		img.src = source;
@@ -59,7 +59,7 @@
 
 		if (window.FormData) {
 	  		formdata = new FormData();
-	  		document.getElementById("btn").style.display = "none";
+	  		document.getElementById("<?php echo 'btn'.$id; ?>").style.display = "none";
 		}
 		
 	 	input.addEventListener("change", function (evt) {
@@ -94,12 +94,12 @@
 					},
 					success: function (res) {
 						if (res) {
-							$('#images').slideToggle();
-							$(<?php echo $id?>).val(res);
-							document.getElementById("response").innerHTML += 'La imagen fue subida correctamente';
+							$("<?php echo '#images'.$id; ?>").slideToggle();
+							$(<?php echo $id; ?>).val(res);
+							document.getElementById("<?php echo 'response'.$id; ?>").innerHTML += '<div class="alert alert-success"><strong>OK!</strong> Imagen fue subida correctamente<button type="button" class="close" data-dismiss="alert">×</button></div>';
 							$('#uploading_gif').hide();
 						}else{
-							document.getElementById("response").innerHTML += 'Error. Intente nuevamente.';
+							document.getElementById("<?php echo 'response'.$id; ?>").innerHTML += '<div class="alert alert-error"><strong>Error!</strong> Formato incorrecto, elija otra imagen e intente nuevamente.<button type="button" class="close" data-dismiss="alert">×</button></div>';
 						}
 						
 					}

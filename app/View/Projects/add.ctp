@@ -1,25 +1,30 @@
 <hr>
-<div class="projects form">
-<?php echo $this->Form->create('Project',array('class'=>'form','type' => 'file') ); ?>
+<div class="projects form" style="background:#f9f9f9; padding:30px">
+<?php echo $this->Form->create('Project',array('class'=>'form') ); ?>
 	<fieldset>
-		<legend><?php echo __('Add Project'); ?></legend>
+		<legend><?php echo __('Agregar Proyecto'); ?></legend>
 	<?php
-		echo $this->Form->input('client_id');
-		echo $this->Form->input('description',array('rows'=>10) );
-		echo '<div class="input-append">'.
-				'<label for="ProjectImage2">Image 2</label>'.
-				'<input name="data[Project][image_1]" maxlength="200" type="text" id="ProjectImage1">'.
-			 '<button class="btn btn-warning" type="button">Agregar Imagen</button></div>';
-		echo $this->Form->input('image_2',array('type' => 'file'));
-		echo $this->Form->input('image_3');
+		echo $this->Form->input('client_id',array('label'=>'Cliente') );
+		echo $this->Form->input('title',array('label'=>'Titulo') );
+		echo $this->Form->input('description',array('rows'=>10,'label'=>'Descripcion') );
+		echo $this->Form->input('image_1',array('type'=>'hidden'));
+		echo 'Imagen 1'.$this->element('uploadById',array('id'=>'ProjectImage1'));
+		echo '<hr>';
+		echo $this->Form->input('image_2',array('type'=>'hidden'));
+		echo 'Imagen 2'.$this->element('uploadById',array('id'=>'ProjectImage2'));
+		echo '<hr>';
+		echo $this->Form->input('image_3',array('type'=>'hidden'));
+		echo 'Imagen 3'.$this->element('uploadById',array('id'=>'ProjectImage3'));
+		/*echo $this->Form->input('image_2',array('type' => 'file'));
+		echo $this->Form->input('image_3');*/
 	?>
+	<?php echo $this->Form->end(__('Guardar')); ?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+
 </div>
-<?php echo $this->element('uploadById',array('id'=>'ProjectImage1')); ?>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+	<ul class="nav nav-tabs nav-stacked">
 
 		<li><?php echo $this->Html->link(__('List Projects'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Clients'), array('controller' => 'clients', 'action' => 'index')); ?> </li>

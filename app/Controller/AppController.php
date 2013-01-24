@@ -34,22 +34,26 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	public $helpers = array('Html','Session','Form');
 	public $uses = array('User');
-	#public $components = array('Facebook.Connect');
-	/*public $components = array('Session',
+	public $components = array('Session',
             'Auth' => array(
-                'authorizedActions' => array(
-                    'index', 'view'
-                ),
-                'authorize' => 'Controller'
-            ),
-            'Facebook.Connect'
-        );*/
+		        'loginAction' => array(
+		            'controller' => 'users',
+		            'action' => 'login',
+		            //'plugin' => 'users'
+		        ),
+		        'authError' => 'Did you really think you are allowed to see that?',
+		        'authenticate' => array(
+		            'Form' => array(
+		                'fields' => array('username' => 'email')
+		            )
+		        )
+		    )
+        );
 	//Example AppController.php components settup with FacebookConnect
 	#public $components = array();
-    
-
 
 	public function beforeFilter() {
+		#$this->Auth->allow(array('index','login'));
 		/*$app_id   = "377583548967953";
 		$app_secret = "aa995450f1f9fb14f0405ca9b71d1922";
 		$site_url = "http://ttt.borealdev.com.ar/";

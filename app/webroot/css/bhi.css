@@ -5,8 +5,8 @@
   @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
   body {
-    padding-bottom: 40px;
     color: #5a5a5a;
+    overflow-x:hidden;
   }
 
 
@@ -78,8 +78,8 @@
     height: 250px;
   }
   .carousel img {
-    min-width: 100%;
-    height: 250px;
+    width: 594px;
+    height: 221px;
   }
 
   
@@ -129,10 +129,10 @@
   .marketing .span4 p {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 12px;
+    font-size: 13px;
     text-rendering: optimizeLegibility;
-    line-height: 12px;
-    font-family: Arial;
+    line-height: 17px;
+    font-weight: 300;
     min-height: 20px;
   }
 
@@ -280,20 +280,39 @@
          -ie-border-radius-bottomleft: 25px;
             border-bottom-left-radius: 25px;
     min-height: 220px;
+    margin-left: -16px;
+    margin-right: 11px;
   }
       .boxcustom h4{
         padding-top: 15px;
         padding-bottom: 15px;
       }
+      .boxcustom .leyenda2{
+        margin-top:-20px;
+        color: white;
+      }
+      .boxcustom .leyenda1{
+        margin-top: -30px;
+        color: white;
+      }
+      .boxcustom a:link, .boxcustom a:visited{
+        color:white;
+      }
+      .boxcustom a:hover{
+        color:#696969;
+        text-decoration: none;
+      }
 
   /* Main marketing message and sign up button */
   .jumbotron {
-    margin-top:-51px;
+    margin-top: -53px;
     text-align: center;
     color: white;
     font-size: 12px;
     width: 100%;
-    margin-bottom: -18px;
+    margin-bottom: -20px;
+    background: url('../img/bg-jumbotron.png') no-repeat center center;
+    height: 122px;
   }
   .jumbotron h1 {
     font-size: 72px;
@@ -301,6 +320,8 @@
   }
   .jumbotron h3{
     font-size: 20px;
+    margin-bottom: 0px;
+    padding-top: 12px;
   }
   .jumbotron .btn {
     font-size: 21px;
@@ -311,12 +332,15 @@
     font-size: 11px;
     font-weight: 200;
     line-height: 16px;
+    width: 68%;
+    margin: 0 auto;
   }
-  .jumbotron .lead a:link, .jumbotron .lead a:visited{
+  .jumbotron p a:link, .jumbotron p a:visited{
     color:white;
   }
-  .jumbotron .lead a:hover{
-    color:#96979a;
+  .jumbotron p a:hover{
+    color:#333;
+    text-decoration: none;
   }
 
   /* Supporting marketing content */
@@ -328,15 +352,74 @@
   .marketing p + h4 {
     margin-top: 28px;
   }
-  .marketing .footercustombox{
-    margin-top: 30px;
+  .marketing .footercustombox1{
+    margin-top: 70px;
     margin-bottom: -15px;
+  }
+  .marketing .footercustombox2{
+    margin-top:30px;
+    margin-bottom: -14px;
   }
 
   .header{
-    margin-top: 6px;
-    margin-bottom: -2px;
+    margin-top: 13px;
+    margin-bottom: -9px;
   }
+    .header li{
+      -webkit-border-top-left-radius: 3px;
+      -webkit-border-top-right-radius: 3px;
+      -moz-border-radius-topleft: 3px;
+      -moz-border-radius-topright: 3px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      font-size: 13px;
+    }
+    .header li#inicio-btn .home{
+      background: url('../img/inicio-hover.png');
+      color:white;
+      text-decoration: none;
+    }
+    .header li#quienessomos-btn .nosotros{
+      background: url('../img/quienessomos-hover.png');
+      color:white;
+      text-decoration: none;
+    }
+    .header li#servicios-btn .servicios{
+      background: url('../img/quienessomos-hover.png');
+      color:white;
+      text-decoration: none;
+    }
+    .header li#proyectos-btn .Projects{
+      background: url('../img/quienessomos-hover.png');
+      color:white;
+      text-decoration: none;
+    }
+    .header li#contacto-btn .contacto{
+      background: url('../img/contacto-hover.png');
+      color:white;
+      text-decoration: none;
+    }
+
+    .header li#inicio-btn a:hover{
+      color:white;
+      text-decoration: none;
+    }
+    .header li#quienessomos-btn a:hover{
+      color:white;
+      text-decoration: none;
+    }
+    .header li#servicios-btn a:hover{
+      color:white;
+      text-decoration: none;
+    }
+    .header li#proyectos-btn a:hover{
+      color:white;
+      text-decoration: none;
+    }
+    .header li#contacto-btn a:hover{
+      color:white;
+      text-decoration: none;
+    }
     .top-logo{
       z-index: 99;
       position: relative;
@@ -355,7 +438,7 @@
         margin-top: 15px;
         margin-bottom: auto;
         margin-left: -129px;
-        width: 597px;
+        width: 594px;
         -webkit-box-shadow: 1px 0px 10px -1px #555;
         -moz-box-shadow: 1px 0px 10px -1px #555;
         -ie-box-shadow: 1px 0px 10px -1px #555;
@@ -365,16 +448,37 @@
       #headerCarousel .item{
         height: 221px;
       }
-  .header li, .footer li{
+  .header li a:link, 
+  .header li a:visited, 
+  .footer li a:link,
+  .footer li a:visited{
     text-transform: uppercase;
     color:#96979a;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .header li a:hover,
+  .footer li a:hover{
+    
   }
   .footer{
     text-align: center;
     margin-top: -22px;
+    background: #282828;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: 200;
   }
     .footer .pointedLine{
-      width:60%;
+      width:45%;
       margin: 0 auto;
       border-bottom: 1px dotted white;
       height:2px;
@@ -396,19 +500,211 @@
   .header li:hover, .footer li:hover{
     color:white;
   }
-
+  .nuestrosclientes-home{
+    margin-top:40px;
+  }
   .nuestrosclientes-home h4{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+  .nuestrosclientes-home .container{
+    height: 365px;
+  }
+  .nuestrosclientes-home ul{
+    margin-top: 115px;
+    list-style: none;
   }
 
 .blueLine{
   width: 90%;
   height: 1px;
   background: #04b3ec;
+  margin:0 auto;
+  margin-bottom: 10px;
+}
+.marketing .span4.ultimosproyectos{
+  min-height: 350px;
+}
+.ultimosproyectos a:link, .ultimosproyectos a:visited{
+  color:#58aac7;
+}
+  .ultimosproyectos h4{
+    margin-top: 20px;
+  }
+  .marketing .ultimosproyectos p{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .marketing .ultimosproyectos p.desc{
+    margin-top:-10px;
+  }
+  .ultimosproyectos .media-body h6{
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  .ultimosproyectos .media-body{
+    text-align: left;
+    font-weight: inherit;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+.quienessomos{
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+.quienessomos .jumbotron, .servicios .jumbotron, .proyectos .jumbotron, .contacto .jumbotron{
+  background-position: center 0px;
+  padding-top: 9px;
+  margin-top: -50px;
+  background: url('../img/bg-jumbotron2.png') no-repeat center center;
+  height: 59px;
+  margin-bottom: 5px;
+}
+.quienessomos p{
+  line-height: 1.4em;
+}
+  .quienessomos .linea-azul{
+    width:200px;
+    height:1px;
+    background: #04b3ec;
+    margin-bottom: 10px;
+  }
+  .quienessomos .desc{
+    color:#04b3ec;
+  }
+  .quienessomos ul{
+    color:#04b3ec;
+    margin:15px;
+  }
+  .quienessomos .brand-info{
+    border-left: 1px solid #eee;
+    padding-left: 10px;
+    box-shadow: -1px 0px 3px -1px #ddd;
+    border-radius: 2px;
+    margin-bottom: 108px;
+  }
+  .quienessomos .brand-info h3{
+    font-size: 14px;
+    text-transform: uppercase;
+    color:#04b3ec;
+  }
+
+.bhiblue{
+  color:#04b3ec;
+}
+.bhiblue div{
+  margin-bottom: 5px;
+}
+.contacto{
+  margin-bottom:30px;
+  margin-top:-5px;
+  font-size: 13px;
+  font-weight: 100;
+}
+.contacto .jumbotron{
+  margin-top: -38px;
+}
+.contacto .container-narrow{
+  margin-top:50px;
+}
+.contacto h4{
+  margin-bottom: 80px;
+  text-align: center;
+}
+.marginleft10{
+  margin-left: 10px;
+}
+.contacto input, .contacto textarea{
+  border:1px solid #04b3ec;
+  margin-left: 4px;
+  border-radius: 10px;
+}
+.contacto .submit input{
+  border-radius: 2px;
+  border:none;
+  color:white;
+  margin-left:15px;
+  margin-top:-19px;
+  background: #04b3ec;
+}
+.contacto .medio{
+  margin-left: 20px;
+}
+.titmedio img{
+  width: 380px;
+  max-width: none;
+  margin-left: -55px;
+  margin-bottom: 20px;
 }
 
-.ultimosproyectos h4{
+.proyectos h4{
+  text-align: center;
+  margin-bottom: 110px;
+}
+.proyectos .container-narrow{
+  margin-top: 60px;
+}
+.proyectos a:link, .proyectos a:visited{
+  color:#04b3ec;
+}
+.proyectos a.currentClient{
+  color:#04b3ec;
+}
+.proyectos a.noCurrentClient{
+  color:#696969;
+}
+.proyectos ul{
+  max-width: 248px;
+  margin-left: 15px;
+  box-shadow: inset -6px 0px 12px -9px #888;
+  -webkit-box-shadow: inset -6px 0px 12px -9px #888;
+  -moz-box-shadow: inset -6px 0px 12px -9px #888;
+  min-height: 300px;
+  margin-bottom: 50px;
+  padding-right: 20px;
+  margin-top: 3px;
+}
+.proyectos li{
+  border-bottom: 1px solid black;
+  padding:4px;
+  text-transform: uppercase;
+}
+.proyectos li:last-child{
+  border:none;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+.proys{
+  margin-bottom: 80px;
+}
+.proys .blueLine{
+  width:100%;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.servicios{
+  margin-bottom: 50px;
+}
+.servicios h3{
+  text-transform: uppercase;
+  color:#04b3ec;
+  margin-top: 30px;
+}
+.servicios p{
+  font-weight: 400;
+  font-size: 13px;
+}
+.servicios .linea-azul{
+  background: #04b3ec;
+  width: 200px;
+  height: 1px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.servicios .container-narrow img{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -1,3 +1,8 @@
+<div class="container-fluid">
+	<div>
+    	<h4><?php echo 'Proyectos'; ?></h4>
+	</div>
+</div>
 <hr>
 <div class="projects index">
 	<h2><?php echo __('Projects'); ?></h2>
@@ -21,9 +26,21 @@
 		</td>
 		<td><?php echo h($project['Project']['description']); ?>&nbsp;</td>
 		<td><?php echo h($project['Project']['created']); ?>&nbsp;</td>
-		<td><?php echo h($project['Project']['image_1']); ?>&nbsp;</td>
-		<td><?php echo h($project['Project']['image_2']); ?>&nbsp;</td>
-		<td><?php echo h($project['Project']['image_3']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link(
+			$this->Html->image('/images-uploaded/'.$project['Project']['image_1'],array('width'=>60) ),
+			'/images-uploaded/'.$project['Project']['image_1'],
+			array('rel'=>'lightbox','escape'=>false)
+		); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link(
+			$this->Html->image('/images-uploaded/'.$project['Project']['image_2'],array('width'=>60) ),
+			'/images-uploaded/'.$project['Project']['image_2'],
+			array('rel'=>'lightbox','escape'=>false)
+		); ?>&nbsp;</td>
+		<td><?php echo $this->Html->link(
+			$this->Html->image('/images-uploaded/'.$project['Project']['image_3'],array('width'=>60) ),
+			'/images-uploaded/'.$project['Project']['image_3'],
+			array('rel'=>'lightbox','escape'=>false)
+		); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $project['Project']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $project['Project']['id'])); ?>
@@ -39,17 +56,19 @@
 	));
 	?>	</p>
 
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+	<div class="paging pagination">
+		<ul>
+		<?php
+			echo '<li>'.$this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')).'</li>';
+			echo '<li>'.$this->Paginator->numbers(array('separator' => '')).'</li>';
+			echo '<li>'.$this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')).'</li>';
+		?>
+		</ul>
 	</div>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+	<ul class="nav nav-tabs nav-stacked">
 		<li><?php echo $this->Html->link(__('New Project'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Clients'), array('controller' => 'clients', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Client'), array('controller' => 'clients', 'action' => 'add')); ?> </li>

@@ -8,9 +8,37 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 	var $name = 'Users';
 	var $helpers = array('Html','Form','Session');
-	#var $uses = array('User');
+	var $uses = array('User');
 	var $components = array('Email');
 	
+	#public function beforeFilter() {
+	    #parent::beforeFilter();
+	    #$this->Auth->allow('login', 'logout','add','a987156428774','testEmail','nuevo_usuario');
+	#}
+
+	public function users(){
+		if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	        	debug($this->data);
+	            return $this->redirect($this->Auth->redirect());
+	        } else {
+	            $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
+	        }
+	    }
+	}
+
+	public function login() {
+	    if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	        	debug($this->data);
+	            return $this->redirect($this->Auth->redirect());
+	        } else {
+	        	debug($this->Auth->login());
+	            $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
+	        }
+	    }
+	}
+
 	public function a987156428774($id){
 		$this->User->read(null, $id);
 		$this->User->set('estado_id', '2');
@@ -109,7 +137,7 @@ class UsersController extends AppController {
 			}
 		}
 	}
-	public function login()
+	public function login2()
 	{
 		if(!empty($this->data))
 		{
