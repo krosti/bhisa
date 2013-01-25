@@ -7,6 +7,11 @@ App::uses('AppController', 'Controller');
  */
 class ProjectsController extends AppController {
 	public $uses = array('Project','Client');
+
+	public function beforeFilter() {
+	    parent::beforeFilter();
+	    $this->Auth->allow('proyectos','cliente'); // Letting users register themselves
+	}
 /**
  * index method
  *

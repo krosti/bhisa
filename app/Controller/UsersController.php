@@ -6,40 +6,27 @@ App::uses('AppController', 'Controller');
  * @property Tipo $Tipo
  */
 class UsersController extends AppController {
-	var $name = 'Users';
-	var $helpers = array('Html','Form','Session');
-	var $uses = array('User');
-	var $components = array('Email');
+	public $name = 'Users';
+	public $helpers = array('Html','Form','Session');
+	public $uses = array('User');
+	public $components = array('Auth','Email','Session');
 	
-	#public function beforeFilter() {
-	    #parent::beforeFilter();
-	    #$this->Auth->allow('login', 'logout','add','a987156428774','testEmail','nuevo_usuario');
-	#}
-
-	public function users(){
-		if ($this->request->is('post')) {
-	        if ($this->Auth->login()) {
-	        	debug($this->data);
-	            return $this->redirect($this->Auth->redirect());
-	        } else {
-	            $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
-	        }
-	    }
+	public function beforeFilter() {
+	    parent::beforeFilter();
+	    //$this->Auth->allow('add'); // Letting users register themselves
 	}
 
 	public function login() {
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
-	        	debug($this->data);
-	            return $this->redirect($this->Auth->redirect());
+	            $this->redirect($this->Auth->redirect());
 	        } else {
-	        	debug($this->Auth->login());
-	            $this->Session->setFlash(__('Username or password is incorrect'), 'default', array(), 'auth');
+	            $this->Session->setFlash(__('Invalid username or password, try again'),'default',array(),'auth');
 	        }
 	    }
 	}
 
-	public function a987156428774($id){
+	public function edit($id){
 		$this->User->read(null, $id);
 		$this->User->set('estado_id', '2');
 		if ($this->User->save($this->data))
@@ -100,43 +87,17 @@ class UsersController extends AppController {
 	}
 
 	public function add() {
-		if (!empty($this->data)) {
-			if ($this->User->save($this->data)) {
-				//$this->Session->setFlash(__('Muchas gracias por registrarte en TTT', true));
-				unset($_POST);			
-					/* envio del mail al dueño. Le avisa que un usuario se ha registrado*/
-					$Info = $this->data;
-					$user = $this->User->find('first',array('conditions'=>array('User.username'=>$this->data['User']['username'])));
-					$mensaje = "Para activar tu cuenta haz click en el link de abajo.";
-					$mensaje2 = "http://ttt.borealdev.com.ar/users/a987156428774/".$user['User']['id'];
-					$sitioweb = "http://ttt.borealdev.com.ar";
-					$InfoAux = array(
-						"nombre" => $Info['User']['name'],
-						"apellido" => $Info['User']['lastname'],
-						"mensaje" => $mensaje,
-						"mensaje2" => $mensaje2,
-						"sitioweb" => $sitioweb,
-						"username" => $Info['User']['username'],
-						"password" => $Info['User']['password'],
-						"email" => $Info['User']['email'],
-					);
-					$this->Email->to = $Info['User']['email'];//ACA LE MANDAMOS EL MAIL CON EL LINK DE CONFIRMACION
-					$this->Email->subject = 'Aviso desde el Sitio Web | ttt.';
-					$this->Email->from = "contacto@ttt.com.ar";					
-					$this->Email->template = 'aviso';				
-					$this->Email->sendAs = 'html';
-					$this->set('infos', $InfoAux);
-					if($this->Email->send()){
-						$this->Session->setFlash(__('La cuenta de usuario fue creada. Se te envi&oacute; un email para su activaci&oacute;n.', true));
-						$this->redirect("/");
-					}else{
-						$this->Session->setFlash(__('Hubo un problema, disculpe los inconvenientes.', true));		
-						$this->redirect("/users/add");									
-					}
-					/* fin envio del mail*/	
-			}
-		}
-	}
+        if ($this->request->is('post')) {
+            $this->User->create();
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        }
+    }
+
 	public function login2()
 	{
 		if(!empty($this->data))
@@ -178,8 +139,6 @@ class UsersController extends AppController {
 	}
 	/** Logout */
 	public function logout() {
-		//$this->Session->delete('User');
-		$this->Auth->logout('id');
-		$this->redirect("/");
-	}	
+    	$this->redirect($this->Auth->logout());
+	}
 }

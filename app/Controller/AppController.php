@@ -34,25 +34,32 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	public $helpers = array('Html','Session','Form');
 	public $uses = array('User');
-	public $components = array('Session',
-            'Auth' => array(
-		        'loginAction' => array(
-		            'controller' => 'users',
-		            'action' => 'login',
-		            //'plugin' => 'users'
-		        ),
-		        'authError' => 'Did you really think you are allowed to see that?',
-		        'authenticate' => array(
-		            'Form' => array(
-		                'fields' => array('username' => 'email')
-		            )
-		        )
-		    )
-        );
+	public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
+        )
+    );
+
+	public function beforeFilter() {
+        #$this->Auth->allow('home','add');
+    }
+
+    public function isAuthorized($user) {
+	    // Admin can access every action
+	    if (isset($user['role']) && $user['role'] === 'admin') {
+	        return true;
+	    }
+
+	    // Default deny
+	    return false;
+	}
+
 	//Example AppController.php components settup with FacebookConnect
 	#public $components = array();
 
-	public function beforeFilter() {
+	//public function beforeFilter() {
 		#$this->Auth->allow(array('index','login'));
 		/*$app_id   = "377583548967953";
 		$app_secret = "aa995450f1f9fb14f0405ca9b71d1922";
@@ -93,5 +100,5 @@ class AppController extends Controller {
 		#$this->set('test',$this->Auth->user());
 		#$this->set('facebook_user', $this->Connect->user() );
 		
-	}
+	//}
 }

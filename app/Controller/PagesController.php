@@ -45,6 +45,10 @@ class PagesController extends AppController {
  */
 	public $uses = array('Project','Client');
 
+	public function beforeFilter() {
+	    parent::beforeFilter();
+	    $this->Auth->allow('display'); // Letting users register themselves
+	}
 
 /**
  * Displays a view
