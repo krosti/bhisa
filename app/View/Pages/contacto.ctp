@@ -8,7 +8,7 @@
 
 	<div class="row-fluid container-narrow">
 
-		<div class="span4">
+		<div class="span3">
 			<div class="row-fluid"><?php echo $this->Html->image('izq.png'); ?></div>
 			<div class="row-fluid bhiblue">
 				<div class="row-fluid"><?php echo $this->Html->image('icon.png').' bhi@bhisa.com.ar'; ?></div>
@@ -18,7 +18,7 @@
 																					Argentina' ?></div>
 			</div>
 		</div>
-		<div class="span4">
+		<div class="span5">
 			<div class="row titmedio"><?php echo $this->Html->image('medio.png'); ?></div>
 			<?php echo $this->Form->create('Contacto', array(
 											    'inputDefaults' => array(
@@ -33,8 +33,8 @@
 		</div>
 		<div class="span4">
 			<div class="row"><?php echo $this->Html->image('der.png'); ?></div>
-			<p>Si crees que puedes entrar a formar parte de nuestra plantilla env&iacute;anos tu curriculum actualizado a la direcci&oacute;n de correo que te facilitamos m&oacute;s abajo y nuestros encargados de Recursos Humanos lo tendr&oacute;n en cuenta para las futuras incorporaciones.</p>
-			<p>Envianos tu cv a: <a href="mailto:bhi@bhisa.com.ar" class="bhiblue">bhi@bhisa.com.ar</a> </p>
+			<p class="info">Si crees que puedes entrar a formar parte de nuestra plantilla env&iacute;anos tu curriculum actualizado a la direcci&oacute;n de correo que te facilitamos m&oacute;s abajo y nuestros encargados de Recursos Humanos lo tendr&oacute;n en cuenta para las futuras incorporaciones.</p>
+			<p class="info">Envianos tu cv a: <a href="mailto:bhi@bhisa.com.ar" class="bhiblue">bhi@bhisa.com.ar</a> </p>
 		</div>
 
 	</div>

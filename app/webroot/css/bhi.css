@@ -36,7 +36,7 @@
     font-size: 22px;
     font-weight: 300;
     text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-    font-family: 'Open Sans', Helvetica;
+    /*font-family: 'Open Sans', Helvetica;*/
   }
 
   /* Navbar links: increase padding for taller navbar */
@@ -129,7 +129,8 @@
   .marketing .span4 p {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 13px;
+    font-size: 12px;
+    /*font-family: Tahoma;*/
     text-rendering: optimizeLegibility;
     line-height: 17px;
     font-weight: 300;
@@ -328,6 +329,7 @@
     padding: 14px 24px;
   }
   .jumbotron .lead{
+    /*font-family: Tahoma;*/
     margin-bottom: 5px;
     font-size: 11px;
     font-weight: 200;
@@ -547,6 +549,9 @@
     text-align: left;
     font-weight: inherit;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 11px;
   }
 
 .quienessomos{
@@ -616,26 +621,44 @@
   margin-left: 10px;
 }
 .contacto input, .contacto textarea{
-  border:1px solid #04b3ec;
+  border: 1px solid #04b3ec;
   margin-left: 4px;
   border-radius: 10px;
+  padding: 2px;
+  width: 373px;
+  margin-top: 7px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  padding-left: 10px;
+  box-shadow: inset 0px 1px 5px 1px #ddd;
 }
 .contacto .submit input{
   border-radius: 2px;
-  border:none;
-  color:white;
-  margin-left:15px;
-  margin-top:-19px;
+  border: none;
+  color: white;
+  margin-left: 15px;
+  margin-top: -7px;
   background: #04b3ec;
+  width: auto;
+  padding-right: 8px;
+  box-shadow: none;
 }
 .contacto .medio{
   margin-left: 20px;
 }
+.contacto .info{
+  margin-left: -10px;
+  max-width: 282px;
+  font-size: 12px;
+}
 .titmedio img{
-  width: 380px;
-  max-width: none;
-  margin-left: -55px;
+  width: 415px;
+  max-width: inherit;
   margin-bottom: 20px;
+}
+.contacto #ContactoDisplayForm{
+  margin-left: -30px;
+  margin-top: -30px;
 }
 
 .proyectos h4{

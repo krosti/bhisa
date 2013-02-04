@@ -3,7 +3,7 @@
 	$(function(){
 		$('#clientesCarousel').carousel();
 		$('#headerCarousel').carousel();
-		/*$('ul.roundabout-holder li')
+		$('ul.roundabout-holder li')
 			.bind({
 			"reposition": function() {
 			  var degrees = $(this).data('roundabout').degrees,
@@ -16,11 +16,11 @@
 			    "transform": "perspective(2000) rotateY(" + rotateY + "deg)"
 			  });
 			}
-	    	});*/
+	    	});
 	    
 	    $('ul.roundabout-holder').roundabout({
 			minScale: 0.9,
-			easing: 'easeOutCubic',
+			easing: 'easeOutElastic',
 			duration: 1900,
 			autoplay: true
 	    });
